@@ -1,0 +1,99 @@
+.gitignore file like -->.gitkeep ,use to push empty folder which is imp to push
+
+.gitnore generator website ---> to add files,gives as boiler plate
+
+.env --> to store environment variables
+
+
+// Js has two types of importing
+1.common js --> require statement
+2.module js --> import statement
+
+package.json --> type:module // we will use in entire project 
+
+nodemon --> file save automatic server restart 
+"npm i -D nodemon" --> dev dependency
+
+// to run 
+nodemon file_name
+
+
+controllers --> major functionality 
+db          --> db connection
+middlewares --> bicha ka bandar server & req // for checking 
+models      --> db Schema design
+routes      --> routes /login , /signup , etc.....
+utils       --> shorcut of utilities // accodring to you requiremwnt ,functionality which repeat adain again 
+
+
+// ----------------------------------------------------------  connect Db in mern --------------------------------------------------------------------- //
+
+// mongo Atlas Db databse
+
+1.create project 
+2.Some changes
+  - Database Access  // Create user and remember password 
+  - Network Access 
+3.database
+  - connect
+  - compass(you can use anyone)
+  - copy URI ,paste on .env with your password ,also remove the / in last
+
+
+// .............. DB connection 2 ways ...................
+1.All code write in index.Js/server.js
+2.DB folder inside connection code then import in index file/server.js and run it 
+
+" npm i mongoose express dotenv " ---> all in one package 
+
+// use async & await(if data need some time) & try catch (if any error occur)
+// 1 approach
+
+(()=>{})();     --> IIFE function
+
+
+
+
+// --------------------------------------------------------  Custom api res and error handling --------------------------------------------------------------------- //
+
+// In index.js
+// its a async function whenever it complete returns a promise that's why .then.catch
+connectDB()
+.then(()=>{
+   app.listen(process.env.PORT || 7000,()=>{
+     console.log(`Server is running on port ${process.env.PORT}`);
+   })
+})
+.catch((err)=>{
+  console.log(`MONGO DB connection Failed !!!!`,err);
+})
+
+// new packages
+"npm i cookie-parser"
+"npm i cors" (Cross-origin resource sharing)
+
+
+// Use for middlewares and configuration
+app.use() 
+
+note:-(error,req,res,next)
+
+
+// --------------------------------------------------------  --------------------------------------------------------------------- //
+// creating models
+
+1.user.model.js
+2.video.mode.js
+
+
+// new package 
+
+"npm install mongoose-aggregate-paginate-v2"        // used in video.model
+--> write before export 
+videoSchema.plugin(mongooseAggregatePaginate)    // you can write aggregation query
+
+// there is 2 package bcrypt.js and bcrypt
+"npm i bcrypt" --> Help you hash passwords
+
+// website for more info --> jwt.io
+"npm i jsonwebtoken"
